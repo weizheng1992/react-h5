@@ -1,3 +1,10 @@
+import type { AttributifyAttributes } from '@unocss/preset-attributify';
+// import type { AriaAttributes, DOMAttributes } from 'react';
+// import { AttributifyAttributes } from 'windicss/types/jsx'
+
+declare module 'react' {
+  interface HTMLAttributes<T> extends AttributifyAttributes {}
+}
 declare namespace Menu {
   interface MenuOptions {
     path: string;

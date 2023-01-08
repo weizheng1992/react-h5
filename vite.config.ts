@@ -48,6 +48,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
     build: {
       target: 'es2015',
       outDir: 'dist',
+      minify: 'terser',
       terserOptions: {
         compress: {
           keep_infinity: true,

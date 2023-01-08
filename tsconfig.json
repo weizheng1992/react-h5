@@ -20,13 +20,23 @@
     "experimentalDecorators": true,
     "jsx": "react-jsx",
     "noImplicitAny": false,
+    "types": ["vite/client"],
+    "typeRoots": ["./node_modules/@types/", "./types"],
     "baseUrl": ".",
     "paths": {
       "/@/*": ["src/*"],
       "/#/*": ["types/*"]
     }
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist", "**/*.js"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "types/**/*.d.ts",
+    "types/**/*.ts",
+    "build/**/*.ts",
+    "build/**/*.d.ts",
+    "vite.config.ts"
+  ],
+  "exclude": ["node_modules", "dist", "**/*.js"]
 }

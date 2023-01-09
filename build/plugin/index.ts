@@ -9,8 +9,7 @@ import { configHtmlPlugin } from './html';
 import { configVisualizerConfig } from './visualizer';
 import { configCompressPlugin } from './compress';
 import { configPwaConfig } from './pwa';
-
-import { presetUno, presetAttributify, presetIcons } from 'unocss';
+import { theme, unocssPresets } from '../../unocss.config';
 
 export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
   const { VITE_LEGACY, VITE_BUILD_COMPRESS, VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE } = viteEnv;
@@ -20,12 +19,8 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
     react(),
 
     Unocss({
-      presets: [presetUno(), presetAttributify(), presetIcons()],
-      theme: {
-        colors: {
-          primary: 'var(--adm-color-primary)',
-        },
-      },
+      presets: unocssPresets,
+      theme: theme,
     }),
 
     // AutoImport({

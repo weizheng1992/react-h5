@@ -1,3 +1,9 @@
+declare module '*.svg' {
+  import { ReactElement, SVGProps } from 'react';
+  const content: (props: SVGProps<SVGElement>) => ReactElement;
+  export default content;
+}
+
 declare type Recordable<T = any> = Record<string, T>;
 declare namespace Menu {
   interface MenuOptions {

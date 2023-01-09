@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from 'antd-mobile';
+import { getTestList } from '/@/api/test/test';
 
 const Index: React.FC = (): JSX.Element => {
+  useEffect(() => {
+    const load = async () => {
+      await getTestList({ pageNum: 1, pageSize: 10, workNumber: 'DXF00980' });
+    };
+    load();
+  }, []);
   return (
     <div>
       Index

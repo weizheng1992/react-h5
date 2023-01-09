@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Button } from 'antd-mobile';
 import { getTestList } from '/@/api/test/test';
+import Icon, { SvgIcon } from '/@/components/icon';
 
 const Index: React.FC = (): JSX.Element => {
   useEffect(() => {
@@ -12,6 +13,9 @@ const Index: React.FC = (): JSX.Element => {
   return (
     <div>
       Index
+      <Icon icon="test-test|svg" />
+      <SvgIcon name="avatar" />
+      <Icon icon="i-ic-baseline-15mp" />
       <button
         p="y-2 x-4"
         font="semibold"

@@ -1,6 +1,6 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import 'virtual:svg-icons-register';
 import App from './App';
 import 'uno.css';
 

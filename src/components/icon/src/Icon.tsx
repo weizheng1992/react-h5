@@ -7,8 +7,8 @@ const SVG_END_WITH_FLAG = '|svg';
 
 type Props = {
   icon: string;
-  color: string;
-  size: number;
+  color?: string;
+  size?: number;
   classname?: string;
 };
 

@@ -7,7 +7,7 @@ type Props = {
   className?: string;
 };
 
-const SvgIcon = ({ prefix = 'icon', name, size = 16, className }: Props) => {
+const SvgIcon = ({ prefix = 'icon', name, size = 16, className = '' }: Props) => {
   const symbolId = useMemo(() => `#${prefix}-${name}`, [prefix, name]);
 
   return (

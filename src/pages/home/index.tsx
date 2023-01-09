@@ -13,9 +13,12 @@ const Index: React.FC = (): JSX.Element => {
   return (
     <div>
       Index
-      <Icon icon="test-test|svg" />
-      <SvgIcon name="avatar" />
-      <Icon icon="i-ic-baseline-15mp" />
+      <div>
+        审时度势颠三倒四的
+        <Icon icon="test-test|svg" />
+        <SvgIcon name="avatar" />
+        <Icon icon="i-ic-baseline-15mp" />
+      </div>
       <button
         p="y-2 x-4"
         font="semibold"

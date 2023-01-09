@@ -16,7 +16,7 @@ type Props = {
 //   size: 16,
 // };
 
-const Icon = ({ icon, color, size = 16, classname }: Props) => {
+const Icon = ({ icon, color, size = 16, classname = '' }: Props) => {
   const svgFile = useMemo(() => {
     const isSvg = icon?.endsWith(SVG_END_WITH_FLAG);
     const getSvgIcon = icon.replace(SVG_END_WITH_FLAG, '');
@@ -44,7 +44,7 @@ const Icon = ({ icon, color, size = 16, classname }: Props) => {
       {svgFile.isSvg ? (
         <SvgIcon size={size} name={svgFile.getSvgIcon} className={classname} />
       ) : (
-        <span className={`${icon} ${classname}`} style={getWrapStyle}></span>
+        <span className={`align-middle ${icon} ${classname}`} style={getWrapStyle}></span>
       )}
     </>
   );

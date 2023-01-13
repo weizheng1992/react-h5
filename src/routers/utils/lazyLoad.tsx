@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react';
+import Loading from '/@/components/loading';
 
 /**
  * @description 路由懒加载
@@ -7,7 +8,7 @@ import React, { Suspense } from 'react';
  */
 const lazyLoad = (Comp: React.LazyExoticComponent<any>): React.ReactNode => {
   return (
-    <Suspense fallback={<div>loading</div>}>
+    <Suspense fallback={<Loading />}>
       <Comp />
     </Suspense>
   );

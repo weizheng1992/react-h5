@@ -7,3 +7,7 @@
 **/*.sh
 
 /public/*
+
+.npmrc
+
+/commander/config.json

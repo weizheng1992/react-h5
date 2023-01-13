@@ -6,5 +6,5 @@ enum Api {
   TestList = '/conference/app/conferenceInfo/list',
 }
 
-export const getTestList = (params: TestParams) =>
+export const getTestList = (params: TestParams): Promise<TestListGetResultModel> =>
   defHttp.get<TestListGetResultModel>({ url: Api.TestList, params });

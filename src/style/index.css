@@ -1,0 +1,15 @@
+html,
+body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+:root:root {
+  --adm-color-primary: #1cd097;
+  --adm-color-text: #262626;
+  --adm-color-text-secondary: #595959;
+  --adm-color-light:#8C8C8C
+}

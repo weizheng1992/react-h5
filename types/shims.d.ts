@@ -9,5 +9,18 @@ declare module 'react' {
     bg?: string;
     border?: string;
     cursor?: string;
+    w?: string;
+    h?: string;
+    flex?: string;
+    align?: string;
+    justify?: string;
+    items?: string;
+    opacity?: string;
+    animate?: string;
+    pos?: string;
+    m?: string;
+    left?: string;
+    transform?: string;
+    translate?: string;
   }
 }

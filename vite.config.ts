@@ -1,6 +1,6 @@
 import { defineConfig, loadEnv, ConfigEnv, UserConfig } from 'vite';
 import { resolve } from 'path';
-import { wrapperEnv } from './build/utils';
+import { wrapperEnv, projectName, isProName } from './build/utils';
 import { createProxy } from './build/proxy';
 import { createVitePlugins } from './build/plugin';
 
@@ -16,7 +16,6 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
   const { VITE_PORT, VITE_PUBLIC_PATH, VITE_PROXY, VITE_DROP_CONSOLE } = viteEnv;
 
   const isBuild = command === 'build';
-
   return {
     base: VITE_PUBLIC_PATH,
     resolve: {
@@ -37,6 +36,9 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
         },
       ],
     },
+    define: {
+      __PRO_NAME__: JSON.stringify(projectName()),
+    },
     plugins: createVitePlugins(viteEnv, isBuild),
     server: {
       // Listening on all local IPs
@@ -47,7 +49,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
     },
     build: {
       target: 'es2015',
-      outDir: 'dist',
+      outDir: isProName() ? projectName() : 'dist',
       minify: 'terser',
       terserOptions: {
         compress: {

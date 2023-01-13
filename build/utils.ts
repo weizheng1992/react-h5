@@ -15,6 +15,14 @@ export function isReportMode(): boolean {
   return process.env.VITE_REPORT === 'true';
 }
 
+export function projectName(): string {
+  return process.env.VITE_PRO_NAME || 'dist';
+}
+
+export function isProName(): boolean {
+  return process.env.VITE_IS_NAME === 'true';
+}
+
 // Read all environment variable configuration files to process.env
 export function wrapperEnv(envConf: Recordable): ViteEnv {
   const ret: any = {};

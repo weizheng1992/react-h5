@@ -1,7 +1,6 @@
 import { BasicPageParams, BasicFetchResult } from '/@/api/model/baseModel';
 
 export type TestParams = BasicPageParams & {
-  workNumber: string;
   startTime?: string;
   endTime?: string;
 };

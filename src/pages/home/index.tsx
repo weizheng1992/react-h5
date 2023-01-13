@@ -6,13 +6,13 @@ import { useRequest } from 'ahooks';
 const Index: React.FC = (): JSX.Element => {
   // useEffect(() => {
   //   const load = async () => {
-  //     await getTestList({ pageNum: 1, pageSize: 10, workNumber: 'DXF00980' });
+  //     await getTestList({ pageNum: 1, pageSize: 10 });
   //   };
   //   load();
   // }, []);
 
   const { data } = useRequest(getTestList, {
-    defaultParams: [{ pageNum: 1, pageSize: 10, workNumber: 'DXF00980' }],
+    defaultParams: [{ pageNum: 1, pageSize: 10 }],
   });
 
   console.log(data);

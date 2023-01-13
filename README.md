@@ -17,44 +17,80 @@ react-web 是一个免费开源的 web 模版。使用了最新的`react`,`vite3
 - [TypeScript](https://www.typescriptlang.org/) - 熟悉`TypeScript`基本语法
 - [react-Router](https://reactrouter.com/en/main) - 熟悉 react-router 基本使用
 - [antd-mobile](https://mobile.ant.design/zh/guide/quick-start) - ui 基本使用
-- [Pinia](https://pinia.web3doc.top/) - 数据状态管理
 - [pnpm](https://www.pnpm.cn/) - 软件包管理器
+- [unocss](https://github.com/unocss/unocss) - css 库
+- [ahooks](https://ahooks.js.org/zh-CN) - vue hooks 库
 
-```bash
-  npm install pnpm -g
+## 准备
 
-```
+- 1. 安装 pnpm
 
-- [tailwind](https://www.tailwindcss.cn/) - css 库 vscode 安装拓展 Tailwind CSS IntelliSense
-- [vueuse](https://vueuse.org/) - vue hooks 库
+  ```bash
+    npm install pnpm -g
+
+  ```
+
+- 2. vscode 安装 unocss 和 windicss intellisense，iconify intellisense
+
+- 3. 安装 commitizen
+
+  ```bash
+    pnpm add commitizen -g
+  ```
+
+      可以使用命令 `npm run commit`
+
+- 4. 多项目配置 commander - config.json 配置项目名字, 执行`cmd:r`刷新配置在 routers - utils - getRouter.ts,根据项目名配置加载路由
+     ```typescript
+     switch (__PRO_NAME__) {
+       case 'test1':
+         components = import.meta.glob(`../modules/test1/*.tsx`);
+         break;
+       default:
+         components = import.meta.glob(`../modules/*.tsx`);
+         break;
+     }
+     ```
 
 ## 安装使用
 
 - 获取项目代码
 
 ```bash
-git clone https://gitlab.yoaimedicine.com/client/web/ivg-ngs.git
+https://github.com/weizheng1992/react-h5.git
 ```
 
 - 安装依赖
 
 ```bash
-cd ivg-ngs
+cd react-h5
 
 pnpm install
 
 ```
 
-- 运行
+- 运行多项目某个项目
 
 ```bash
-pnpm start
+  pnpm start
+```
+
+- 默认启动
+
+```bash
+  pnpm dev
 ```
 
 - 打包
 
 ```bash
 pnpm build
+```
+
+- 多项目打包
+
+```bash
+pnpm cmd
 ```
 
 **Pull Request:**
@@ -85,33 +121,29 @@ pnpm build
 ## 目录结构
 
 ```bash
+
 ├── README.md
-├── auto-imports.d.ts
-├── commitlint.config.js
-├── components.d.ts
-├── index.html
-├── jsconfig.json
-├── lint-staged.config.js
-├── package.json
-├── pnpm-lock.yaml
-├── postcss.config.js
-├── public
+├── build
+│   ├── commander              # 多项目命令
+│   ├── plugin
+│   ├── proxy.ts
+│   └── utils.ts
 ├── src
-│   ├── App.vue
-│   ├── api                       接口
-│   ├── assets                    文件
-│   ├── components                组件
-│   ├── const                     常量
-│   ├── design                    样式
-│   ├── hooks                     hook
-│   ├── layouts                   布局
-│   ├── main.js
-│   ├── router                    路由和菜单
-│   ├── store                     状态管理
-│   ├── utils                     工具
-│   └── views                     页面
-├── stylelint.config.js
-└── vite.config.js
+│   ├── App.tsx
+│   ├── api                    # api接口管理
+│   ├── assets                 # 静态文件
+│   ├── components             # 公共组件
+│   ├── enums                  # 常量
+│   ├── hooks                  # 常用 Hooks
+│   ├── main.tsx
+│   ├── pages                  # 所有页面
+│   ├── routers                # 路由管理
+│   ├── style                  # 公共样式
+│   ├── utils                  # 公共组件
+│   └── vite-env.d.ts
+├── tsconfig.json
+├── unocss.config.ts
+└── vite.config.ts
 ```
 
 ## components
@@ -125,5 +157,3 @@ pnpm build
   <Icon icon="ion:log-out" :size="30" />
   <SvgIcon name="schedule" size="32" />
   ```
-
-  [icon 图标地址](https://iconify.design/) svg 放在 assets/icon 下面 schedule 是 svg 的名字

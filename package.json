@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vite",
     "cmd": "esno ./build/commander/index.ts build",
-    "cmd:c": "esno ./build/commander/index.ts config -r",
+    "cmd:r": "esno ./build/commander/index.ts config -r",
     "start": "esno ./build/commander/index.ts start",
     "build": "tsc && cross-env NODE_ENV=production vite build",
     "build:test": "tsc && cross-env vite build --mode test",
